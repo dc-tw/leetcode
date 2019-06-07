@@ -24,3 +24,5 @@ public:
         return l3.next;
     }
 };
+// new is important
+// pointer link-list
