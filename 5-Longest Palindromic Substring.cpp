@@ -1,22 +1,19 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
-        if (s.length() < 2) return s;
-        int n = s.length(), maxLen = 0, start = 0;
-        for (int i = 0; i < n;) {//dynamic programming
-            if (n - i <= maxLen / 2) break;//to tail
-            int left = i, right = i;
-            while (right < n - 1 && s[right + 1] == s[right]) ++right;//all same char
-            i = right + 1;
-            while (right < n - 1 && left > 0 && s[right + 1] == s[left - 1]) {
-                ++right;
-                --left;
-            }//expand
-            if (maxLen < right - left + 1) {//update maxLen
-                maxLen = right - left + 1;
-                start = left;
+        if (s.size()==0) return "";
+        int dp[s.size()][s.size()] = {0}, left = 0, right = 0, len = 0;
+        for (int i = 0; i < s.size(); ++i) {
+            dp[i][i] = 1;
+            for (int j = 0; j < i; ++j) {
+                dp[j][i] = (s[i] == s[j] && (i - j < 2 || dp[j + 1][i - 1]));
+                if (dp[j][i] && len < i - j + 1) {
+                    len = i - j + 1;
+                    left = j;
+                    right = i;
+                }
             }
         }
-        return s.substr(start, maxLen);
+        return s.substr(left, right - left + 1);
     }
 };
