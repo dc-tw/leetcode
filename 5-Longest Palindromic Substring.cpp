@@ -6,12 +6,12 @@ public:
         for (int i = 0; i < n;) {//dynamic programming
             if (n - i <= maxLen / 2) break;//to tail
             int left = i, right = i;
-            while (right < n - 1 && s[right + 1] == s[right]) ++right;
+            while (right < n - 1 && s[right + 1] == s[right]) ++right;//all same char
             i = right + 1;
             while (right < n - 1 && left > 0 && s[right + 1] == s[left - 1]) {
                 ++right;
                 --left;
-            }
+            }//expand
             if (maxLen < right - left + 1) {//update maxLen
                 maxLen = right - left + 1;
                 start = left;
