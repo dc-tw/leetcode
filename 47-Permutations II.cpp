@@ -16,13 +16,13 @@ private:
             return;
         }
         for (int i = 0; i < nums.size(); ++i) {
-        if(used[i]) continue;//Same number
-        if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) continue;
-        used[i] = 1;
-        cur.push_back(nums[i]);
-        dfs(nums, cur, used, ans);
-        cur.pop_back();
-        used[i] = 0;
+            if(used[i]) continue;//Same number
+            if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) continue;
+            used[i] = 1;
+            cur.push_back(nums[i]);
+            dfs(nums, cur, used, ans);
+            cur.pop_back();
+            used[i] = 0;
         }
     }
 };
