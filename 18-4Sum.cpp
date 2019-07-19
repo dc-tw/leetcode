@@ -20,7 +20,7 @@ public:
                     auto it = index.find(t);
                     if (it == index.end() || it->second <= k) continue;
                     h.insert({nums[i], nums[j], nums[k], t});
-                }           
+                }
             }
         }
     return vector<vector<int>>(begin(h), end(h));
