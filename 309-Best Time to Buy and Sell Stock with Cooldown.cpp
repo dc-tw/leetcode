@@ -12,4 +12,4 @@ public:
         }
         return max(rest, sold);
     }
-};
+};//finite state machine
