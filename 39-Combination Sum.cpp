@@ -3,7 +3,7 @@ public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         vector<vector<int>> ans;
         vector<int> cur;
-        std::sort(candidates.begin(), candidates.end());
+        sort(candidates.begin(), candidates.end());
         dfs(candidates, target, 0, cur, ans);
         return ans;
     }
