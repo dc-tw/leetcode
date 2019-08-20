@@ -11,6 +11,7 @@ public:
         }
         return false;
     }
+private:
     bool search(vector<vector<char>>& board, string word, int idx, int i, int j, vector<vector<bool>>& visited) {
         if (idx == word.size()) return true;
         int m = board.size(), n = board[0].size();
