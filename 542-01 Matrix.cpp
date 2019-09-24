@@ -14,12 +14,13 @@ public:
                     seen[i][j] = 1;        
                 }
     
-        vector<int> dirs{0, -1, 0, 1, 0};
+        int dirs[5]={0, -1, 0, 1, 0};
         int steps = 0;
         while (!q.empty()) {
             int size = q.size();
             while (size--) {
-                auto pair = q.front(); q.pop();
+                auto pair = q.front(); 
+                q.pop();
                 int i = pair.first;
                 int j = pair.second;
                 ans[i][j] = steps;
@@ -33,7 +34,6 @@ public:
             }
             ++steps;
         }
-    
         return ans; 
     }
 };
